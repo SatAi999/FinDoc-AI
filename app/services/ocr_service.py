@@ -22,18 +22,7 @@ class OCRService:
     _easyocr_reader = None
 
     @classmethod
-    def should_skip_heavy_ocr(cls) -> bool:
-        if getattr(settings, "DISABLE_HEAVY_OCR", False):
-            return True
-        if os.environ.get("RENDER") or os.environ.get("DISABLE_HEAVY_OCR"):
-            return True
-        return False
-
-    @classmethod
     def get_paddle_ocr(cls):
-        if cls.should_skip_heavy_ocr():
-            logger.info("RAM-constrained environment detected (Render 512MB). Skipping PaddleOCR initialization to preserve RAM.")
-            return None
         if cls._paddle_ocr is None:
             try:
                 os.environ["FLAGS_enable_pir_api"] = "0"
@@ -47,9 +36,6 @@ class OCRService:
 
     @classmethod
     def get_easyocr_reader(cls):
-        if cls.should_skip_heavy_ocr():
-            logger.info("RAM-constrained environment detected (Render 512MB). Skipping EasyOCR PyTorch initialization to preserve RAM.")
-            return None
         if cls._easyocr_reader is None:
             try:
                 import torch
@@ -139,11 +125,11 @@ class OCRService:
                         text_blocks.extend(lines)
                 else:
                     is_scanned_doc = True
-                    logger.info(f"Document '{filename}' is scanned/image-heavy. Performing structure extraction...")
+                    logger.info(f"Document '{filename}' is scanned/image-heavy. Performing OCR structure extraction...")
                     
                     for page_idx in range(total_pages):
                         page = pdf_doc.load_page(page_idx)
-                        pix = page.get_pixmap(dpi=130)
+                        pix = page.get_pixmap(dpi=200)
                         img_bytes = pix.tobytes("png")
                         
                         scanned_page, engine = cls._ocr_image_bytes_unified(img_bytes, page_number=page_idx + 1)
@@ -213,8 +199,6 @@ class OCRService:
         }
 
         cls._cache[doc_hash] = result
-        import gc
-        gc.collect()
         return result
 
     @classmethod

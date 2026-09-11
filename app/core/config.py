@@ -29,9 +29,6 @@ class Settings(BaseSettings):
     # Financial Validation Settings
     FINANCIAL_TOLERANCE: float = 0.05
     
-    # Processing & OCR Configuration
-    DISABLE_HEAVY_OCR: bool = False
-    
     # Logging
     LOG_LEVEL: str = "INFO"
 
