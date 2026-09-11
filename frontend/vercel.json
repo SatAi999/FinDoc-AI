@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "routes": [
+    { "src": "/view/(.*)", "dest": "/view.html?doc=$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
