@@ -18,13 +18,14 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# CORS middleware to allow cross-origin requests from Vercel frontend
+# Robust CORS middleware configuration for Vercel <-> Render cross-origin requests
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"],
     allow_headers=["*"],
+    expose_headers=["*"]
 )
 
 # Mount API routes

@@ -23,6 +23,12 @@ def health_check():
     }
 
 @router.post(
+    "/process",
+    response_model=DocumentResponseSchema,
+    summary="Process Financial Document (Alias)",
+    include_in_schema=False
+)
+@router.post(
     "/documents/process",
     response_model=DocumentResponseSchema,
     summary="Process Financial Document",

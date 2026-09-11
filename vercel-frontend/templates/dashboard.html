@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinDoc AI — Enterprise Document Intelligence Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+  <!-- Left Navigation Sidebar -->
+  <aside class="app-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <i class="fa-solid fa-brain"></i>
+      </div>
+      <div>
+        <div class="brand-title">FinDoc AI</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-label">CORE PLATFORM</div>
+      <a href="/" class="nav-item-link active">
+        <i class="fa-regular fa-folder"></i>
+        <span>Documents</span>
+      </a>
+
+      <div class="nav-label mt-4">DEVELOPER TOOLS</div>
+      <a href="/docs" target="_blank" class="nav-item-link">
+        <i class="fa-solid fa-code"></i>
+        <span>Swagger OpenAPI</span>
+      </a>
+      <a href="/redoc" target="_blank" class="nav-item-link">
+        <i class="fa-regular fa-file-lines"></i>
+        <span>ReDoc Reference</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="system-status-card" id="system-health-box">
+        <div class="status-dot" id="health-dot"></div>
+        <div>
+          <div class="status-text" id="health-status-text">API Online</div>
+          <div class="status-sub" id="health-latency">API Online • Ping 9ms</div>
+        </div>
+      </div>
+      <div class="user-avatar-pill">K</div>
+    </div>
+  </aside>
+
+  <!-- Main Content Workspace -->
+  <main class="app-main">
+    <!-- Top Bar -->
+    <header class="app-topbar">
+      <div class="topbar-title">
+        <h1>Document Intelligence Workspace</h1>
+        <p>Scanned OCR • AI Field Extraction • Formula Reconciliation</p>
+      </div>
+
+      <div class="topbar-actions">
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" class="search-input" id="global-search-input" placeholder="Search documents...">
+        </div>
+
+        <a href="#process-form-section" class="btn-primary-custom">
+          <i class="fa-solid fa-plus"></i>
+          <span>Process Document</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Content Body -->
+    <div class="app-content">
+
+      <!-- Process New Document Section (Two-Column Card) -->
+      <section class="process-document-card" id="process-form-section">
+        <h3 class="card-title-lg">Process New Document</h3>
+
+        <form id="upload-form">
+          <div class="process-grid-two-col">
+            
+            <!-- Left: Fully Interactive Submitted Category Selection -->
+            <div class="category-select-col">
+              <label class="col-label">SUBMITTED CATEGORY</label>
+              
+              <!-- Interactive Selected Tags Box (Click box to open dropdown, click X to remove) -->
+              <div class="category-tags-box" id="category-tags-display" onclick="toggleCategoryDropdown(event)">
+                <div id="chips-container" style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
+                  <!-- Dynamic chips will render here -->
+                </div>
+                <span class="tags-box-cursor">|</span>
+                <span class="tags-box-caret" id="tags-caret"><i class="fa-solid fa-chevron-down"></i></span>
+              </div>
+
+              <!-- Category Options Dropdown Menu -->
+              <div class="category-dropdown-container" id="category-dropdown" style="display: none;">
+                <div class="category-option-item" data-val="invoice" onclick="onCategoryOptionClick('invoice', 'Invoice', event)">
+                  <span>Invoice</span>
+                </div>
+                <div class="category-option-item" data-val="receipt" onclick="onCategoryOptionClick('receipt', 'Receipt', event)">
+                  <span>Receipt</span>
+                </div>
+                <div class="category-option-item" data-val="po" onclick="onCategoryOptionClick('po', 'PO', event)">
+                  <span>PO (Purchase Order)</span>
+                </div>
+                <div class="category-option-item" data-val="balance_sheet" onclick="onCategoryOptionClick('balance_sheet', 'Balance Sheet', event)">
+                  <span>Balance Sheet</span>
+                </div>
+                <div class="category-option-item" data-val="profit_and_loss" onclick="onCategoryOptionClick('profit_and_loss', 'Profit & Loss', event)">
+                  <span>Profit & Loss</span>
+                </div>
+                <div class="category-option-item" data-val="cash_flow_statement" onclick="onCategoryOptionClick('cash_flow_statement', 'Cash Flow', event)">
+                  <span>Cash Flow Statement</span>
+                </div>
+                <div class="category-option-item" data-val="other" onclick="onCategoryOptionClick('other', 'Other', event)">
+                  <span>Other</span>
+                </div>
+              </div>
+
+              <input type="hidden" id="selected-document-type" name="document_type" value="invoice">
+            </div>
+
+            <!-- Right: Drop Zone and Action -->
+            <div class="drop-zone-col">
+              <div class="enterprise-drop-zone" id="drop-zone">
+                <div class="drop-icon-wrapper">
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                </div>
+                <div class="drop-primary-text">Choose File or Drag & Drop Here</div>
+                <div class="drop-secondary-text">Supports PDF, JPG, PNG. Supports up to 3 pages per file</div>
+                
+                <button type="submit" class="process-action-btn" id="process-submit-btn">
+                  <span>Process Document</span>
+                </button>
+              </div>
+
+              <input type="file" id="file-input" style="display:none;" accept=".pdf,.jpg,.jpeg,.png">
+
+              <div id="file-selected-info" style="display:none; margin-top: 8px;">
+                <span class="file-selected-pill">
+                  <i class="fa-solid fa-file-circle-check"></i>
+                  <span id="file-name-text"></span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+        <!-- Notification Alert Box -->
+        <div id="alert-container"></div>
+
+        <!-- Processing Loader Box -->
+        <div class="processing-box" id="processing-box" style="display: none;">
+          <div class="spinner-custom"></div>
+          <div>
+            <div class="processing-title">Processing Document via Backend Pipeline...</div>
+            <small style="font-size: 0.78rem; color: var(--primary); opacity: 0.85;">Executing PyMuPDF/EasyOCR, AI Extraction (Gemini & Grok) & Formula Reconciliation</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Processed Documents Repository Section -->
+      <section class="documents-panel" id="documents-panel-section">
+        <div class="panel-header">
+          <div class="panel-title">
+            <h2>Processed Documents Repository</h2>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <!-- Category Filter Tabs -->
+            <div class="filter-tabs">
+              <button class="filter-pill active" onclick="filterCategory('all', this)">All</button>
+              <button class="filter-pill" onclick="filterCategory('invoice', this)">Invoices</button>
+              <button class="filter-pill" onclick="filterCategory('profit_and_loss', this)">P&Ls</button>
+              <button class="filter-pill" onclick="filterCategory('balance_sheet', this)">Bank Statements</button>
+            </div>
+
+            <button class="btn-outline-custom" onclick="loadDashboardData()">
+              <i class="fa-solid fa-rotate-right"></i> Refresh
+            </button>
+          </div>
+        </div>
+
+        <!-- Documents Table -->
+        <div class="data-table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>DOCUMENT NAME</th>
+                <th>CATEGORY</th>
+                <th>PAGES</th>
+                <th>PROCESSING STATUS</th>
+                <th>PROCESSED AT</th>
+                <th>ACTIONS</th>
+                <th>BATCH GROUP</th>
+              </tr>
+            </thead>
+            <tbody id="dashboard-table-body">
+              <!-- Populated dynamically via GET /api/v1/documents -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Floating AI Insights & Recommendations Card -->
+  <div class="ai-insights-widget" id="ai-insights-card">
+    <div class="insights-header">
+      <div class="insights-title">
+        <i class="fa-solid fa-sparkles"></i>
+        <span>AI Insights & Recommendations</span>
+      </div>
+      <button onclick="document.getElementById('ai-insights-card').style.display='none'" style="background:none; border:none; color: var(--text-subtle); cursor: pointer; font-size: 0.85rem;">&times;</button>
+    </div>
+    <ul class="insights-list">
+      <li>Review recent failure pattern in 'P&L' category.</li>
+      <li>Update 'Invoice' template mapping for vendor X.</li>
+      <li>Export failure data to CSV.</li>
+    </ul>
+  </div>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

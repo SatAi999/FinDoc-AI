@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Inspection — FinDoc AI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const DOCUMENT_NAME = {{ document_name | tojson }};
+  </script>
+</head>
+<body>
+
+  <!-- Left Navigation Sidebar -->
+  <aside class="app-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <i class="fa-solid fa-brain"></i>
+      </div>
+      <div>
+        <div class="brand-title">FinDoc AI</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-label">CORE PLATFORM</div>
+      <a href="/" class="nav-item-link">
+        <i class="fa-regular fa-folder"></i>
+        <span>Documents</span>
+      </a>
+      <a href="#" class="nav-item-link active">
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        <span>Document Inspection</span>
+      </a>
+
+      <div class="nav-label mt-4">DEVELOPER TOOLS</div>
+      <a href="/docs" target="_blank" class="nav-item-link">
+        <i class="fa-solid fa-code"></i>
+        <span>Swagger OpenAPI</span>
+      </a>
+      <a href="/redoc" target="_blank" class="nav-item-link">
+        <i class="fa-regular fa-file-lines"></i>
+        <span>ReDoc Reference</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="system-status-card">
+        <div class="status-dot"></div>
+        <div>
+          <div class="status-text">API Online</div>
+          <div class="status-sub">API Online • Ping 9ms</div>
+        </div>
+      </div>
+      <div class="user-avatar-pill">K</div>
+    </div>
+  </aside>
+
+  <!-- Main Workspace -->
+  <main class="app-main">
+    <!-- Top Bar -->
+    <header class="app-topbar">
+      <div class="topbar-title">
+        <h1>Financial Document Intelligence Workspace</h1>
+        <p>Ground-Truth Verification • AI Field Extraction • Formula Reconciliation</p>
+      </div>
+
+      <div class="topbar-actions">
+        <a href="/" class="btn-outline-custom">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to Documents</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Content Body -->
+    <div class="app-content">
+      
+      <!-- Meta Summary Bar -->
+      <section class="inspection-meta-bar">
+        <div class="meta-item">
+          <label>Document Filename</label>
+          <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-main); word-break: break-all;" id="meta-doc-name">Loading...</div>
+        </div>
+
+        <div class="meta-item">
+          <label>Classified Category</label>
+          <span class="badge-status na" id="meta-doc-type">---</span>
+        </div>
+
+        <div class="meta-item">
+          <label>Processing Status</label>
+          <span class="badge-status na" id="meta-status">---</span>
+        </div>
+
+        <div class="meta-item">
+          <label>Processed Timestamp</label>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);" id="meta-timestamp">---</div>
+        </div>
+
+        <div class="meta-item" style="text-align: right;">
+          <label>Pipeline Runtime</label>
+          <div style="font-size: 1.1rem; font-weight: 800; color: var(--primary);" id="meta-speed">-- ms</div>
+        </div>
+      </section>
+
+      <!-- File Validation Banner -->
+      <section style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 16px 20px; box-shadow: var(--shadow-xs);">
+        <div style="font-weight: 700; font-size: 0.88rem; color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i>
+          <span>File Boundary & Limit Validation</span>
+        </div>
+        <div id="file-validation-container" style="display: flex; gap: 28px; font-size: 0.85rem; color: var(--text-muted); flex-wrap: wrap;">
+          <!-- Populated by document_result.js -->
+        </div>
+      </section>
+
+      <!-- Workspace Navigation Tabs -->
+      <div class="tab-navigation">
+        <button class="tab-btn active" onclick="switchInspectionTab('extracted', this)">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Extracted Data & Evidence</span>
+        </button>
+        <button class="tab-btn" onclick="switchInspectionTab('validation', this)">
+          <i class="fa-solid fa-calculator"></i>
+          <span>Financial Formula Reconciliation</span>
+        </button>
+        <button class="tab-btn" onclick="switchInspectionTab('json', this)">
+          <i class="fa-solid fa-code"></i>
+          <span>Raw API JSON Output</span>
+        </button>
+      </div>
+
+      <!-- Tab Content Container -->
+      <div id="tab-content-container">
+
+        <!-- Tab 1: Extracted Key-Value Data & Tables -->
+        <div id="tab-extracted" class="tab-pane" style="display: block;">
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            
+            <!-- ADDITIVE EXECUTIVE FINANCIAL INTELLIGENCE LAYER -->
+            <div id="executive-kpi-container"></div>
+            <div id="executive-charts-container"></div>
+            <div id="comparative-insights-container"></div>
+
+            <!-- Key-Value Fields Card (Original UI Preserved) -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-sm);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                <h3 style="font-size: 1rem; font-weight: 800; color: var(--text-main);">
+                  <i class="fa-solid fa-table-cells" style="color: var(--primary); margin-right: 8px;"></i>Extracted Key Fields
+                </h3>
+                <span style="font-size: 0.78rem; color: var(--text-subtle);">
+                  <i class="fa-solid fa-circle-info me-1"></i>Only present fields rendered (Anti-hallucination)
+                </span>
+              </div>
+
+              <div id="extracted-fields-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px;">
+                <!-- Populated via document_result.js -->
+              </div>
+            </div>
+
+            <!-- Line Items / Multi-Period Financial Tables Card (Original UI Preserved) -->
+            <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-sm);">
+              <h3 style="font-size: 1rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px;">
+                <i class="fa-solid fa-table" style="color: var(--primary); margin-right: 8px;"></i>Statements & Line Items Table
+              </h3>
+
+              <div id="tables-container" class="data-table-container">
+                <!-- Populated via document_result.js -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 2: Financial Formula Reconciliations -->
+        <div id="tab-validation" class="tab-pane" style="display: none;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+              <h3 style="font-size: 1rem; font-weight: 800; color: var(--text-main);">
+                <i class="fa-solid fa-square-poll-vertical" style="color: var(--primary); margin-right: 8px;"></i>Formula Reconciliation Engine Results
+              </h3>
+              <span class="badge-status na" id="overall-validation-chip">Overall: -</span>
+            </div>
+
+            <div class="data-table-container">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Formula Check Name</th>
+                    <th>Equation Definition</th>
+                    <th>Operands</th>
+                    <th>Calculated</th>
+                    <th>Reported</th>
+                    <th>Variance</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="validation-checks-table-body">
+                  <!-- Populated via document_result.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Raw Developer JSON Output -->
+        <div id="tab-json" class="tab-pane" style="display: none;">
+          <div style="position: relative;">
+            <button class="copy-json-btn" onclick="copyJsonToClipboard()">
+              <i class="fa-regular fa-copy me-1"></i> Copy Payload
+            </button>
+            <pre class="json-container" id="json-viewer-content">Loading API JSON payload...</pre>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="/static/js/document_result.js"></script>
+</body>
+</html>

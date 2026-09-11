@@ -218,14 +218,14 @@ async function checkSystemHealth() {
 
   const startTime = performance.now();
   try {
-    const res = await fetch('https://findoc-ai-2c11.onrender.com/api/v1/health');
+    const res = await fetch('/api/v1/health');
     const endTime = performance.now();
     const pingMs = Math.max(1, Math.round(endTime - startTime));
 
     if (res.ok) {
       if (dot) dot.style.background = '#10B981';
       if (text) text.textContent = 'API Online';
-      if (latency) latency.textContent = `API Online â€¢ Ping ${pingMs}ms`;
+      if (latency) latency.textContent = `API Online • Ping ${pingMs}ms`;
     } else {
       if (dot) dot.style.background = '#EF4444';
       if (text) text.textContent = 'API Degraded';
@@ -238,10 +238,10 @@ async function checkSystemHealth() {
   }
 }
 
-// Fetch documents from GET https://findoc-ai-2c11.onrender.com/api/v1/documents
+// Fetch documents from GET /api/v1/documents
 async function loadDashboardData() {
   try {
-    const res = await fetch('https://findoc-ai-2c11.onrender.com/api/v1/documents');
+    const res = await fetch('/api/v1/documents');
     if (!res.ok) return;
 
     allDocuments = await res.json();
@@ -323,10 +323,10 @@ function renderDocumentsTable() {
         <td style="font-size: 0.78rem; color: var(--text-muted);">${formattedDate}</td>
         <td>
           <div class="table-action-group">
-            <a href="view.html?doc=${encodeURIComponent(doc.document_name)}" class="table-icon-btn" title="View Document">
+            <a href="/view/${encodeURIComponent(doc.document_name)}" class="table-icon-btn" title="View Document">
               <i class="fa-regular fa-eye"></i>
             </a>
-            <a href="view.html?doc=${encodeURIComponent(doc.document_name)}" class="table-icon-btn" title="Inspect Settings">
+            <a href="/view/${encodeURIComponent(doc.document_name)}" class="table-icon-btn" title="Inspect Settings">
               <i class="fa-solid fa-gear"></i>
             </a>
           </div>
@@ -351,7 +351,7 @@ function updateFileNameDisplay() {
   }
 }
 
-// Upload Form Submission (POST https://findoc-ai-2c11.onrender.com/api/v1/documents/process)
+// Upload Form Submission (POST /api/v1/documents/process)
 async function handleDocumentUpload(e) {
   e.preventDefault();
 
@@ -375,7 +375,7 @@ async function handleDocumentUpload(e) {
   if (alertContainer) alertContainer.innerHTML = '';
 
   try {
-    const res = await fetch('https://findoc-ai-2c11.onrender.com/api/v1/documents/process', {
+    const res = await fetch('/api/v1/documents/process', {
       method: 'POST',
       body: formData
     });
@@ -389,12 +389,12 @@ async function handleDocumentUpload(e) {
       showAlert(`Document '${data.document_name}' processed successfully as '${formatCategoryName(data.document_type)}'! Opening result workspace...`, 'emerald');
       await loadDashboardData();
       setTimeout(() => {
-        window.location.href = `view.html?doc=${encodeURIComponent(data.document_name)}`;
+        window.location.href = `/view/${encodeURIComponent(data.document_name)}`;
       }, 700);
     }
   } catch (err) {
     console.error('Processing request error:', err);
-    showAlert(`Connection Error: ${err.message || 'Failed to connect to backend server endpoint.'}`, 'rose');
+    showAlert('Failed to connect to backend server endpoint.', 'rose');
   } finally {
     progressBox.style.display = 'none';
     if (submitBtn) submitBtn.disabled = false;
@@ -438,4 +438,3 @@ function escapeHtml(str) {
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
 }
-

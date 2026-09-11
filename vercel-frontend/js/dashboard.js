@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   checkSystemHealth();
   loadDashboardData();
   initCategorySelector();
@@ -394,7 +394,7 @@ async function handleDocumentUpload(e) {
     }
   } catch (err) {
     console.error('Processing request error:', err);
-    showAlert('Failed to connect to backend server endpoint.', 'rose');
+    showAlert(`Connection Error: ${err.message || 'Failed to connect to backend server endpoint.'}`, 'rose');
   } finally {
     progressBox.style.display = 'none';
     if (submitBtn) submitBtn.disabled = false;

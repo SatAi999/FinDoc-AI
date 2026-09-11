@@ -1,0 +1,144 @@
+/* ==========================================================================
+   FINDOC AI — CUSTOM SWAGGER & REDOC ENTERPRISE THEME
+   Deep Teal, Modern Fintech Aesthetics & Navbar
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Top Enterprise Header */
+.findoc-docs-topbar {
+  background: #0b2530;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.findoc-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.findoc-brand-icon {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #00B4D8, #0f4a56);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.05rem;
+}
+
+.findoc-brand-title {
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.findoc-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #94A3B8;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.findoc-docs-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.findoc-nav-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #E2E8F0;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.findoc-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+.findoc-nav-btn.primary {
+  background: #0f4a56;
+  border-color: #1a6473;
+}
+
+.findoc-nav-btn.primary:hover {
+  background: #00B4D8;
+  color: #0b2530;
+}
+
+/* Swagger UI Theme Enhancements */
+body {
+  margin: 0;
+  background-color: #F8FAFC !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+}
+
+.swagger-ui .topbar {
+  display: none !important;
+}
+
+.swagger-ui .info {
+  margin: 28px 0 !important;
+}
+
+.swagger-ui .info .title {
+  color: #0f4a56 !important;
+  font-weight: 800 !important;
+}
+
+.swagger-ui .opblock.opblock-post {
+  border-color: #0f4a56 !important;
+  background: rgba(15, 74, 86, 0.04) !important;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary-method {
+  background: #0f4a56 !important;
+}
+
+.swagger-ui .opblock.opblock-get {
+  border-color: #0284C7 !important;
+  background: rgba(2, 132, 199, 0.04) !important;
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary-method {
+  background: #0284C7 !important;
+}
+
+.swagger-ui .btn.execute {
+  background-color: #0f4a56 !important;
+  border-color: #0f4a56 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+}
+
+.swagger-ui .btn.execute:hover {
+  background-color: #0a353e !important;
+}
