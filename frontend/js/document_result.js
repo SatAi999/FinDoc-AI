@@ -10,7 +10,7 @@ let secondaryChartInstance = null;
 
 async function fetchDocumentDetails(name) {
   try {
-    const res = await fetch(`https://findoc-ai-2c11.onrender.com/api/v1/documents/${encodeURIComponent(name)}`);
+    const res = await fetch(`/api/v1/documents/${encodeURIComponent(name)}`);
     if (!res.ok) {
       alert('Document record not found in database repository.');
       return;
@@ -1273,4 +1273,5 @@ function escapeHtml(str) {
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
 }
+
 

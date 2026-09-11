@@ -1,8 +1,14 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "routes": [
-    { "src": "/view/(.*)", "dest": "/view.html?doc=$1" },
-    { "src": "/(.*)", "dest": "/$1" }
+  "rewrites": [
+    {
+      "source": "/api/v1/:path*",
+      "destination": "https://findoc-ai-2c11.onrender.com/api/v1/:path*"
+    },
+    {
+      "source": "/view/:name*",
+      "destination": "/view.html?doc=:name*"
+    }
   ]
 }

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
   checkSystemHealth();
   loadDashboardData();
   initCategorySelector();
@@ -218,14 +218,14 @@ async function checkSystemHealth() {
 
   const startTime = performance.now();
   try {
-    const res = await fetch('https://findoc-ai-2c11.onrender.com/api/v1/health');
+    const res = await fetch('/api/v1/health');
     const endTime = performance.now();
     const pingMs = Math.max(1, Math.round(endTime - startTime));
 
     if (res.ok) {
       if (dot) dot.style.background = '#10B981';
       if (text) text.textContent = 'API Online';
-      if (latency) latency.textContent = `API Online â€¢ Ping ${pingMs}ms`;
+      if (latency) latency.textContent = `API Online Ã¢â‚¬Â¢ Ping ${pingMs}ms`;
     } else {
       if (dot) dot.style.background = '#EF4444';
       if (text) text.textContent = 'API Degraded';
@@ -238,10 +238,10 @@ async function checkSystemHealth() {
   }
 }
 
-// Fetch documents from GET https://findoc-ai-2c11.onrender.com/api/v1/documents
+// Fetch documents from GET /api/v1/documents
 async function loadDashboardData() {
   try {
-    const res = await fetch('https://findoc-ai-2c11.onrender.com/api/v1/documents');
+    const res = await fetch('/api/v1/documents');
     if (!res.ok) return;
 
     allDocuments = await res.json();
@@ -351,7 +351,7 @@ function updateFileNameDisplay() {
   }
 }
 
-// Upload Form Submission (POST https://findoc-ai-2c11.onrender.com/api/v1/documents/process)
+// Upload Form Submission (POST /api/v1/documents/process)
 async function handleDocumentUpload(e) {
   e.preventDefault();
 
@@ -375,7 +375,7 @@ async function handleDocumentUpload(e) {
   if (alertContainer) alertContainer.innerHTML = '';
 
   try {
-    const res = await fetch('https://findoc-ai-2c11.onrender.com/api/v1/documents/process', {
+    const res = await fetch('/api/v1/documents/process', {
       method: 'POST',
       body: formData
     });
@@ -438,4 +438,5 @@ function escapeHtml(str) {
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
 }
+
 
