@@ -1,0 +1,24 @@
+{
+  "invoice_number": "_",
+  "invoice_date": null,
+  "vendor_name": "31802013",
+  "customer_name": null,
+  "currency": null,
+  "subtotal": null,
+  "tax_amount": 68.0,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "invoice_number": {
+      "source_text": "Inv No _",
+      "page_number": 1
+    },
+    "tax_amount": {
+      "source_text": "GST payahle (68):",
+      "page_number": 1
+    }
+  }
+}

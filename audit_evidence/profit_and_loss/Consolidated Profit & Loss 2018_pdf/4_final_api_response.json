@@ -1,0 +1,75 @@
+{
+  "document_name": "Consolidated Profit & Loss 2018.pdf",
+  "document_type": "profit_and_loss",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "error_message": null
+  },
+  "extracted_data": {
+    "company_name": "Consolidated Statement of Profit and Loss",
+    "currency": null,
+    "periods": [
+      {
+        "period_name": "2018",
+        "revenue": null,
+        "cost_of_sales": null,
+        "gross_profit": null,
+        "interest_earned": null,
+        "other_income": null,
+        "total_income": null,
+        "operating_expenses": null,
+        "interest_expended": null,
+        "provisions_and_contingencies": null,
+        "total_expenditure": null,
+        "operating_profit": null,
+        "tax": null,
+        "net_profit_before_minority_interest": null,
+        "minority_interest": null,
+        "net_profit": null,
+        "current_profit": null,
+        "brought_forward_profit": null,
+        "total_available_for_appropriation": null,
+        "line_items": []
+      },
+      {
+        "period_name": "2017",
+        "revenue": null,
+        "cost_of_sales": null,
+        "gross_profit": null,
+        "interest_earned": null,
+        "other_income": null,
+        "total_income": null,
+        "operating_expenses": null,
+        "interest_expended": null,
+        "provisions_and_contingencies": null,
+        "total_expenditure": null,
+        "operating_profit": null,
+        "tax": null,
+        "net_profit_before_minority_interest": null,
+        "minority_interest": null,
+        "net_profit": null,
+        "current_profit": null,
+        "brought_forward_profit": null,
+        "total_available_for_appropriation": null,
+        "line_items": []
+      }
+    ],
+    "evidence": {}
+  },
+  "validation": {
+    "checks": [],
+    "overall_status": "NOT_APPLICABLE",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T08:49:38.671549",
+    "processing_time_ms": 66185.26,
+    "model_used": "Rule-based Engine"
+  }
+}

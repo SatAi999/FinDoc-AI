@@ -1,0 +1,35 @@
+# Environment & Secrets
+.env
+*.env
+.venv/
+venv/
+ENV/
+env/
+
+# Python Cache & Testing
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Database
+*.db
+*.sqlite3
+documents.db
+
+# Uploads & Temp Files
+uploads/
+temp/
+tmp/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+

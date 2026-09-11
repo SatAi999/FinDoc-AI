@@ -1,0 +1,75 @@
+{
+  "document_name": "X51008142038.jpg",
+  "document_type": "invoice",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "jpg",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "error_message": null
+  },
+  "extracted_data": {
+    "invoice_number": null,
+    "invoice_date": null,
+    "vendor_name": "99 SPEED HaRT S/8 (519537-X)",
+    "customer_name": null,
+    "currency": "USD",
+    "subtotal": null,
+    "tax_amount": null,
+    "discount": null,
+    "total_amount": null,
+    "cash_paid": null,
+    "change_amount": null,
+    "line_items": [],
+    "evidence": {}
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "Sum of Line Items Reconciliation",
+        "formula": "Sum(Line Totals) = Subtotal / Total",
+        "operands": {
+          "line_totals_sum": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "Tax & Subtotal Reconciliation",
+        "formula": "Subtotal - Discount + Tax = Total Amount",
+        "operands": {
+          "subtotal": null,
+          "tax_amount": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "Cash & Change Reconciliation",
+        "formula": "Cash Paid - Total Amount = Change",
+        "operands": {
+          "cash_paid": null,
+          "total_amount": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      }
+    ],
+    "overall_status": "NOT_APPLICABLE",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T08:47:44.226998",
+    "processing_time_ms": 14001.62,
+    "model_used": "Rule-based Engine"
+  }
+}

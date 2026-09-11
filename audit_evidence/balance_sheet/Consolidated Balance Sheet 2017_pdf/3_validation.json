@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "name": "[2017] Capital & Liabilities vs Assets",
+      "formula": "Total Capital & Liabilities = Total Assets",
+      "operands": {
+        "total_capital_and_liabilities": null
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "name": "[2017] Liabilities + Equity Reconciliation",
+      "formula": "Total Liabilities + Total Equity = Total Assets",
+      "operands": {
+        "total_liabilities": null,
+        "total_equity": null
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "name": "[2016] Capital & Liabilities vs Assets",
+      "formula": "Total Capital & Liabilities = Total Assets",
+      "operands": {
+        "total_capital_and_liabilities": null
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "name": "[2016] Liabilities + Equity Reconciliation",
+      "formula": "Total Liabilities + Total Equity = Total Assets",
+      "operands": {
+        "total_liabilities": null,
+        "total_equity": null
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    }
+  ],
+  "overall_status": "NOT_APPLICABLE",
+  "issues": []
+}

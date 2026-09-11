@@ -1,0 +1,24 @@
+{
+  "invoice_number": null,
+  "invoice_date": null,
+  "vendor_name": "Mtb",
+  "customer_name": null,
+  "currency": "EUR",
+  "subtotal": 10.0,
+  "tax_amount": null,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "tax_amount": {
+      "source_text": "GST Reg. No ,",
+      "page_number": 1
+    },
+    "subtotal": {
+      "source_text": "10 SubTotal",
+      "page_number": 1
+    }
+  }
+}

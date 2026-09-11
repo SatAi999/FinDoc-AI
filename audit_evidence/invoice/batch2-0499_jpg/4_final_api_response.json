@@ -1,0 +1,88 @@
+{
+  "document_name": "batch2-0499.jpg",
+  "document_type": "invoice",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "jpg",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "error_message": null
+  },
+  "extracted_data": {
+    "invoice_number": "6825",
+    "invoice_date": "Dec 03, 2022",
+    "vendor_name": "TAYLOR CERTIFIED PROCESSING INC 101 B",
+    "customer_name": "Devon Road Invoice: KiranP@taylor-corp.ca",
+    "currency": "USD",
+    "subtotal": null,
+    "tax_amount": 8.0,
+    "discount": null,
+    "total_amount": null,
+    "cash_paid": null,
+    "change_amount": null,
+    "line_items": [],
+    "evidence": {
+      "tax_amount": {
+        "source_text": "Sales Tax 8%",
+        "page_number": 1
+      },
+      "invoice_number": {
+        "source_text": "Invoice#: 6825",
+        "page_number": 1
+      },
+      "invoice_date": {
+        "source_text": "Due date: Dec 03, 2022",
+        "page_number": 1
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "Sum of Line Items Reconciliation",
+        "formula": "Sum(Line Totals) = Subtotal / Total",
+        "operands": {
+          "line_totals_sum": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "Tax & Subtotal Reconciliation",
+        "formula": "Subtotal - Discount + Tax = Total Amount",
+        "operands": {
+          "subtotal": null,
+          "tax_amount": 8.0
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "Cash & Change Reconciliation",
+        "formula": "Cash Paid - Total Amount = Change",
+        "operands": {
+          "cash_paid": null,
+          "total_amount": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      }
+    ],
+    "overall_status": "NOT_APPLICABLE",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T08:45:21.259718",
+    "processing_time_ms": 30372.44,
+    "model_used": "Rule-based Engine"
+  }
+}

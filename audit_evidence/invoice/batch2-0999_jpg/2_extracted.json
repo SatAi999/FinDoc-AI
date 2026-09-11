@@ -1,0 +1,24 @@
+{
+  "invoice_number": null,
+  "invoice_date": null,
+  "vendor_name": "INVOICE",
+  "customer_name": null,
+  "currency": "USD",
+  "subtotal": null,
+  "tax_amount": 8.0,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "total_amount": {
+      "source_text": "TOTAL, $",
+      "page_number": 1
+    },
+    "tax_amount": {
+      "source_text": "Sales Tax 8%",
+      "page_number": 1
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "name": "[2023] Ending Cash Reconciliation",
+      "formula": "Opening Cash + Net Change in Cash + Adjustments = Closing Cash",
+      "operands": {
+        "opening_cash": null,
+        "net_change_in_cash": null
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "name": "[2022] Ending Cash Reconciliation",
+      "formula": "Opening Cash + Net Change in Cash + Adjustments = Closing Cash",
+      "operands": {
+        "opening_cash": null,
+        "net_change_in_cash": null
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    }
+  ],
+  "overall_status": "NOT_APPLICABLE",
+  "issues": []
+}

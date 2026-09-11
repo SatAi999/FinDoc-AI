@@ -1,0 +1,28 @@
+{
+  "invoice_number": "6825",
+  "invoice_date": "Dec 03, 2022",
+  "vendor_name": "TAYLOR CERTIFIED PROCESSING INC 101 B",
+  "customer_name": "Devon Road Invoice: KiranP@taylor-corp.ca",
+  "currency": "USD",
+  "subtotal": null,
+  "tax_amount": 8.0,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "tax_amount": {
+      "source_text": "Sales Tax 8%",
+      "page_number": 1
+    },
+    "invoice_number": {
+      "source_text": "Invoice#: 6825",
+      "page_number": 1
+    },
+    "invoice_date": {
+      "source_text": "Due date: Dec 03, 2022",
+      "page_number": 1
+    }
+  }
+}

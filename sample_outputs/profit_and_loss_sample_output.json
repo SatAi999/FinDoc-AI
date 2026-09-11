@@ -1,0 +1,336 @@
+{
+  "document_name": "sample_profit_and_loss.pdf",
+  "document_type": "profit_and_loss",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "error_message": null
+  },
+  "extracted_data": {
+    "company_name": "NEXUS TRADING LTD",
+    "currency": null,
+    "periods": [
+      {
+        "period_name": "2023",
+        "revenue": 1000000.0,
+        "cost_of_sales": 400000.0,
+        "gross_profit": 600000.0,
+        "interest_earned": 15000.0,
+        "other_income": 5000.0,
+        "total_income": 1020000.0,
+        "operating_expenses": 250000.0,
+        "interest_expended": 20000.0,
+        "provisions_and_contingencies": 10000.0,
+        "total_expenditure": 680000.0,
+        "operating_profit": null,
+        "tax": 70000.0,
+        "net_profit_before_minority_interest": null,
+        "minority_interest": null,
+        "net_profit": 270000.0,
+        "current_profit": 270000.0,
+        "brought_forward_profit": 100000.0,
+        "total_available_for_appropriation": 370000.0,
+        "line_items": [
+          {
+            "line_item_name": "Revenue",
+            "amount": 1000000.0
+          },
+          {
+            "line_item_name": "Cost of Sales",
+            "amount": 400000.0
+          },
+          {
+            "line_item_name": "Gross Profit",
+            "amount": 600000.0
+          },
+          {
+            "line_item_name": "Interest Earned",
+            "amount": 15000.0
+          },
+          {
+            "line_item_name": "Other Income",
+            "amount": 5000.0
+          },
+          {
+            "line_item_name": "Total Income",
+            "amount": 1020000.0
+          },
+          {
+            "line_item_name": "Operating Expenses",
+            "amount": 250000.0
+          },
+          {
+            "line_item_name": "Interest Expended",
+            "amount": 20000.0
+          },
+          {
+            "line_item_name": "Provisions and Contingencies",
+            "amount": 10000.0
+          },
+          {
+            "line_item_name": "Total Expenditure",
+            "amount": 680000.0
+          },
+          {
+            "line_item_name": "Tax",
+            "amount": 70000.0
+          },
+          {
+            "line_item_name": "Net Profit",
+            "amount": 270000.0
+          },
+          {
+            "line_item_name": "Current Profit",
+            "amount": 270000.0
+          },
+          {
+            "line_item_name": "Brought Forward Profit",
+            "amount": 100000.0
+          },
+          {
+            "line_item_name": "Total Available for Appropriation",
+            "amount": 370000.0
+          }
+        ]
+      },
+      {
+        "period_name": "2022",
+        "revenue": 800000.0,
+        "cost_of_sales": 350000.0,
+        "gross_profit": 450000.0,
+        "interest_earned": 10000.0,
+        "other_income": 5000.0,
+        "total_income": 815000.0,
+        "operating_expenses": 200000.0,
+        "interest_expended": 15000.0,
+        "provisions_and_contingencies": 10000.0,
+        "total_expenditure": 575000.0,
+        "operating_profit": null,
+        "tax": 50000.0,
+        "net_profit_before_minority_interest": null,
+        "minority_interest": null,
+        "net_profit": 190000.0,
+        "current_profit": 190000.0,
+        "brought_forward_profit": 50000.0,
+        "total_available_for_appropriation": 240000.0,
+        "line_items": [
+          {
+            "line_item_name": "Revenue",
+            "amount": 800000.0
+          },
+          {
+            "line_item_name": "Cost of Sales",
+            "amount": 350000.0
+          },
+          {
+            "line_item_name": "Gross Profit",
+            "amount": 450000.0
+          },
+          {
+            "line_item_name": "Interest Earned",
+            "amount": 10000.0
+          },
+          {
+            "line_item_name": "Other Income",
+            "amount": 5000.0
+          },
+          {
+            "line_item_name": "Total Income",
+            "amount": 815000.0
+          },
+          {
+            "line_item_name": "Operating Expenses",
+            "amount": 200000.0
+          },
+          {
+            "line_item_name": "Interest Expended",
+            "amount": 15000.0
+          },
+          {
+            "line_item_name": "Provisions and Contingencies",
+            "amount": 10000.0
+          },
+          {
+            "line_item_name": "Total Expenditure",
+            "amount": 575000.0
+          },
+          {
+            "line_item_name": "Tax",
+            "amount": 50000.0
+          },
+          {
+            "line_item_name": "Net Profit",
+            "amount": 190000.0
+          },
+          {
+            "line_item_name": "Current Profit",
+            "amount": 190000.0
+          },
+          {
+            "line_item_name": "Brought Forward Profit",
+            "amount": 50000.0
+          },
+          {
+            "line_item_name": "Total Available for Appropriation",
+            "amount": 240000.0
+          }
+        ]
+      }
+    ],
+    "evidence": {
+      "company_name": {
+        "text": "NEXUS TRADING LTD",
+        "page_number": 1
+      },
+      "period_heading": {
+        "text": "For the years ended December 31, 2023 and 2022",
+        "page_number": 1
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "[2023] Total Income Reconciliation",
+        "formula": "Interest Earned + Other Income = Total Income",
+        "operands": {
+          "interest_earned": 15000.0,
+          "other_income": 5000.0
+        },
+        "calculated_value": 20000.0,
+        "reported_value": 1020000.0,
+        "variance": 1000000.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "[2023] Gross Profit Reconciliation",
+        "formula": "Revenue - Cost of Sales = Gross Profit",
+        "operands": {
+          "revenue": 1000000.0,
+          "cost_of_sales": 400000.0
+        },
+        "calculated_value": 600000.0,
+        "reported_value": 600000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2023] Total Expenditure Reconciliation",
+        "formula": "Operating Expenses + Interest Expended + Provisions = Total Expenditure",
+        "operands": {
+          "operating_expenses": 250000.0,
+          "interest_expended": 20000.0,
+          "provisions": 10000.0
+        },
+        "calculated_value": 280000.0,
+        "reported_value": 680000.0,
+        "variance": 400000.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "[2023] Net Profit Pre-Minority Interest Reconciliation",
+        "formula": "Total Income - Total Expenditure = Net Profit",
+        "operands": {
+          "total_income": 1020000.0,
+          "total_expenditure": 680000.0
+        },
+        "calculated_value": 340000.0,
+        "reported_value": 270000.0,
+        "variance": 70000.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "[2023] Profit Appropriation Reconciliation",
+        "formula": "Current Profit + Brought Forward Profit = Total Available for Appropriation",
+        "operands": {
+          "current_profit": 270000.0,
+          "brought_forward_profit": 100000.0
+        },
+        "calculated_value": 370000.0,
+        "reported_value": 370000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2022] Total Income Reconciliation",
+        "formula": "Interest Earned + Other Income = Total Income",
+        "operands": {
+          "interest_earned": 10000.0,
+          "other_income": 5000.0
+        },
+        "calculated_value": 15000.0,
+        "reported_value": 815000.0,
+        "variance": 800000.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "[2022] Gross Profit Reconciliation",
+        "formula": "Revenue - Cost of Sales = Gross Profit",
+        "operands": {
+          "revenue": 800000.0,
+          "cost_of_sales": 350000.0
+        },
+        "calculated_value": 450000.0,
+        "reported_value": 450000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2022] Total Expenditure Reconciliation",
+        "formula": "Operating Expenses + Interest Expended + Provisions = Total Expenditure",
+        "operands": {
+          "operating_expenses": 200000.0,
+          "interest_expended": 15000.0,
+          "provisions": 10000.0
+        },
+        "calculated_value": 225000.0,
+        "reported_value": 575000.0,
+        "variance": 350000.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "[2022] Net Profit Pre-Minority Interest Reconciliation",
+        "formula": "Total Income - Total Expenditure = Net Profit",
+        "operands": {
+          "total_income": 815000.0,
+          "total_expenditure": 575000.0
+        },
+        "calculated_value": 240000.0,
+        "reported_value": 190000.0,
+        "variance": 50000.0,
+        "status": "FAIL"
+      },
+      {
+        "name": "[2022] Profit Appropriation Reconciliation",
+        "formula": "Current Profit + Brought Forward Profit = Total Available for Appropriation",
+        "operands": {
+          "current_profit": 190000.0,
+          "brought_forward_profit": 50000.0
+        },
+        "calculated_value": 240000.0,
+        "reported_value": 240000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "FAIL",
+    "issues": [
+      "Validation failed for '[2023] Total Income Reconciliation': Calculated 20000.0 vs Reported 1020000.0 (Variance: 1000000.0)",
+      "Validation failed for '[2023] Total Expenditure Reconciliation': Calculated 280000.0 vs Reported 680000.0 (Variance: 400000.0)",
+      "Validation failed for '[2023] Net Profit Pre-Minority Interest Reconciliation': Calculated 340000.0 vs Reported 270000.0 (Variance: 70000.0)",
+      "Validation failed for '[2022] Total Income Reconciliation': Calculated 15000.0 vs Reported 815000.0 (Variance: 800000.0)",
+      "Validation failed for '[2022] Total Expenditure Reconciliation': Calculated 225000.0 vs Reported 575000.0 (Variance: 350000.0)",
+      "Validation failed for '[2022] Net Profit Pre-Minority Interest Reconciliation': Calculated 240000.0 vs Reported 190000.0 (Variance: 50000.0)"
+    ]
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "processed_at": "2026-09-10T07:44:05.932220",
+    "processing_time_ms": 54350.8,
+    "model_used": "Gemini 3.6 Flash"
+  }
+}

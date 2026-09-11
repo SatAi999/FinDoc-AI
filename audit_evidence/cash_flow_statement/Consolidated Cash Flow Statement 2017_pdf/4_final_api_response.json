@@ -1,0 +1,80 @@
+{
+  "document_name": "Consolidated Cash Flow Statement 2017.pdf",
+  "document_type": "cash_flow_statement",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 2,
+    "status": "PASS",
+    "error_message": null
+  },
+  "extracted_data": {
+    "company_name": "Consolidated Cash Flow Statement",
+    "currency": null,
+    "periods": [
+      {
+        "period_name": "2017",
+        "operating_cash_flow": null,
+        "investing_cash_flow": null,
+        "financing_cash_flow": null,
+        "fx_translation_adjustment": null,
+        "net_change_in_cash": null,
+        "opening_cash": null,
+        "cash_acquired_adjustments": null,
+        "closing_cash": null,
+        "line_items": []
+      },
+      {
+        "period_name": "2016",
+        "operating_cash_flow": null,
+        "investing_cash_flow": null,
+        "financing_cash_flow": null,
+        "fx_translation_adjustment": null,
+        "net_change_in_cash": null,
+        "opening_cash": null,
+        "cash_acquired_adjustments": null,
+        "closing_cash": null,
+        "line_items": []
+      }
+    ],
+    "evidence": {}
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "[2017] Ending Cash Reconciliation",
+        "formula": "Opening Cash + Net Change in Cash + Adjustments = Closing Cash",
+        "operands": {
+          "opening_cash": null,
+          "net_change_in_cash": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      },
+      {
+        "name": "[2016] Ending Cash Reconciliation",
+        "formula": "Opening Cash + Net Change in Cash + Adjustments = Closing Cash",
+        "operands": {
+          "opening_cash": null,
+          "net_change_in_cash": null
+        },
+        "calculated_value": null,
+        "reported_value": null,
+        "variance": null,
+        "status": "NOT_APPLICABLE"
+      }
+    ],
+    "overall_status": "NOT_APPLICABLE",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": true,
+    "processed_at": "2026-09-10T08:39:55.409598",
+    "processing_time_ms": 96722.42,
+    "model_used": "Rule-based Engine"
+  }
+}

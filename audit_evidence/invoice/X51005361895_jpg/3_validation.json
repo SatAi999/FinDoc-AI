@@ -1,0 +1,41 @@
+{
+  "checks": [
+    {
+      "name": "Sum of Line Items Reconciliation",
+      "formula": "Sum(Line Totals) = Subtotal / Total",
+      "operands": {
+        "line_totals_sum": null
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "name": "Tax & Subtotal Reconciliation",
+      "formula": "Subtotal - Discount + Tax = Total Amount",
+      "operands": {
+        "subtotal": null,
+        "tax_amount": 6.0
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "name": "Cash & Change Reconciliation",
+      "formula": "Cash Paid - Total Amount = Change",
+      "operands": {
+        "cash_paid": null,
+        "total_amount": null
+      },
+      "calculated_value": null,
+      "reported_value": null,
+      "variance": null,
+      "status": "NOT_APPLICABLE"
+    }
+  ],
+  "overall_status": "NOT_APPLICABLE",
+  "issues": []
+}

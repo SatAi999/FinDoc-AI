@@ -1,0 +1,20 @@
+{
+  "invoice_number": null,
+  "invoice_date": null,
+  "vendor_name": "AMAN MALAYSIA SON BH (682288-V )",
+  "customer_name": null,
+  "currency": null,
+  "subtotal": null,
+  "tax_amount": 6.0,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "tax_amount": {
+      "source_text": "ve 6% GST",
+      "page_number": 1
+    }
+  }
+}

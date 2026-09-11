@@ -1,0 +1,195 @@
+{
+  "document_name": "sample_balance_sheet.pdf",
+  "document_type": "balance_sheet",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "error_message": null
+  },
+  "extracted_data": {
+    "company_name": "GLOBAL FINANCIAL CORP",
+    "currency": null,
+    "periods": [
+      {
+        "period_name": "2023",
+        "total_assets": 500000.0,
+        "total_liabilities": 200000.0,
+        "total_equity": 300000.0,
+        "total_capital_and_liabilities": 500000.0,
+        "asset_line_items": [
+          {
+            "line_item_name": "Cash and Cash Equivalents",
+            "amount": 150000.0
+          },
+          {
+            "line_item_name": "Accounts Receivable",
+            "amount": 100000.0
+          },
+          {
+            "line_item_name": "Property and Equipment",
+            "amount": 250000.0
+          }
+        ],
+        "liability_equity_line_items": [
+          {
+            "line_item_name": "Accounts Payable",
+            "amount": 120000.0
+          },
+          {
+            "line_item_name": "Short Term Debt",
+            "amount": 80000.0
+          },
+          {
+            "line_item_name": "Common Stock",
+            "amount": 200000.0
+          },
+          {
+            "line_item_name": "Retained Earnings",
+            "amount": 100000.0
+          }
+        ]
+      },
+      {
+        "period_name": "2022",
+        "total_assets": 400000.0,
+        "total_liabilities": 150000.0,
+        "total_equity": 250000.0,
+        "total_capital_and_liabilities": 400000.0,
+        "asset_line_items": [
+          {
+            "line_item_name": "Cash and Cash Equivalents",
+            "amount": 120000.0
+          },
+          {
+            "line_item_name": "Accounts Receivable",
+            "amount": 80000.0
+          },
+          {
+            "line_item_name": "Property and Equipment",
+            "amount": 200000.0
+          }
+        ],
+        "liability_equity_line_items": [
+          {
+            "line_item_name": "Accounts Payable",
+            "amount": 100000.0
+          },
+          {
+            "line_item_name": "Short Term Debt",
+            "amount": 50000.0
+          },
+          {
+            "line_item_name": "Common Stock",
+            "amount": 200000.0
+          },
+          {
+            "line_item_name": "Retained Earnings",
+            "amount": 50000.0
+          }
+        ]
+      }
+    ],
+    "evidence": {
+      "total_assets_2023": {
+        "source_text": "Total Assets                       500000.00     400000.00",
+        "page_number": 1
+      },
+      "total_assets_2022": {
+        "source_text": "Total Assets                       500000.00     400000.00",
+        "page_number": 1
+      },
+      "total_capital_and_liabilities_2023": {
+        "source_text": "Total Capital and Liabilities      500000.00     400000.00",
+        "page_number": 1
+      },
+      "total_capital_and_liabilities_2022": {
+        "source_text": "Total Capital and Liabilities      500000.00     400000.00",
+        "page_number": 1
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "[2023] Capital & Liabilities vs Assets",
+        "formula": "Total Capital & Liabilities = Total Assets",
+        "operands": {
+          "total_capital_and_liabilities": 500000.0
+        },
+        "calculated_value": 500000.0,
+        "reported_value": 500000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2023] Liabilities + Equity Reconciliation",
+        "formula": "Total Liabilities + Total Equity = Total Assets",
+        "operands": {
+          "total_liabilities": 200000.0,
+          "total_equity": 300000.0
+        },
+        "calculated_value": 500000.0,
+        "reported_value": 500000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2023] Asset Line Items Sum",
+        "formula": "Sum(Asset Components) = Total Assets",
+        "operands": {
+          "components_count": 3.0
+        },
+        "calculated_value": 500000.0,
+        "reported_value": 500000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2022] Capital & Liabilities vs Assets",
+        "formula": "Total Capital & Liabilities = Total Assets",
+        "operands": {
+          "total_capital_and_liabilities": 400000.0
+        },
+        "calculated_value": 400000.0,
+        "reported_value": 400000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2022] Liabilities + Equity Reconciliation",
+        "formula": "Total Liabilities + Total Equity = Total Assets",
+        "operands": {
+          "total_liabilities": 150000.0,
+          "total_equity": 250000.0
+        },
+        "calculated_value": 400000.0,
+        "reported_value": 400000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2022] Asset Line Items Sum",
+        "formula": "Sum(Asset Components) = Total Assets",
+        "operands": {
+          "components_count": 3.0
+        },
+        "calculated_value": 400000.0,
+        "reported_value": 400000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "processed_at": "2026-09-10T07:44:10.130837",
+    "processing_time_ms": 4469.2,
+    "model_used": "Rule-based Engine"
+  }
+}

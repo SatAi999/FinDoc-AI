@@ -1,0 +1,20 @@
+{
+  "invoice_number": null,
+  "invoice_date": null,
+  "vendor_name": "Thank You: Please come again.",
+  "customer_name": null,
+  "currency": null,
+  "subtotal": null,
+  "tax_amount": 444.0,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "tax_amount": {
+      "source_text": "'444k# GST Summary",
+      "page_number": 1
+    }
+  }
+}

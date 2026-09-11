@@ -1,0 +1,20 @@
+{
+  "invoice_number": null,
+  "invoice_date": null,
+  "vendor_name": "RESTORAN WAn SHENG",
+  "customer_name": null,
+  "currency": null,
+  "subtotal": null,
+  "tax_amount": 1335787520.0,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "tax_amount": {
+      "source_text": "GSTREG NO ; 001335787520",
+      "page_number": 1
+    }
+  }
+}

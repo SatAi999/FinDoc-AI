@@ -1,0 +1,20 @@
+{
+  "invoice_number": null,
+  "invoice_date": null,
+  "vendor_name": "Invoice",
+  "customer_name": null,
+  "currency": "USD",
+  "subtotal": null,
+  "tax_amount": null,
+  "discount": null,
+  "total_amount": 5257.0,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "total_amount": {
+      "source_text": "Total: $5257",
+      "page_number": 1
+    }
+  }
+}

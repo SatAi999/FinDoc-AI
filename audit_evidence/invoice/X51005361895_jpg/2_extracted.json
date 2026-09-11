@@ -1,0 +1,20 @@
+{
+  "invoice_number": null,
+  "invoice_date": null,
+  "vendor_name": "FUYI MINI MARKET",
+  "customer_name": null,
+  "currency": null,
+  "subtotal": null,
+  "tax_amount": 6.0,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {
+    "tax_amount": {
+      "source_text": "GST 6% +",
+      "page_number": 1
+    }
+  }
+}

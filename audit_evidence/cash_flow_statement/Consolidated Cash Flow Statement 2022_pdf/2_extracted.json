@@ -1,0 +1,31 @@
+{
+  "company_name": "310",
+  "currency": null,
+  "periods": [
+    {
+      "period_name": "2022",
+      "operating_cash_flow": null,
+      "investing_cash_flow": null,
+      "financing_cash_flow": null,
+      "fx_translation_adjustment": null,
+      "net_change_in_cash": null,
+      "opening_cash": null,
+      "cash_acquired_adjustments": null,
+      "closing_cash": null,
+      "line_items": []
+    },
+    {
+      "period_name": "2021",
+      "operating_cash_flow": null,
+      "investing_cash_flow": null,
+      "financing_cash_flow": null,
+      "fx_translation_adjustment": null,
+      "net_change_in_cash": null,
+      "opening_cash": null,
+      "cash_acquired_adjustments": null,
+      "closing_cash": null,
+      "line_items": []
+    }
+  ],
+  "evidence": {}
+}

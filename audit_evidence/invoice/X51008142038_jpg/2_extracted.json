@@ -1,0 +1,15 @@
+{
+  "invoice_number": null,
+  "invoice_date": null,
+  "vendor_name": "99 SPEED HaRT S/8 (519537-X)",
+  "customer_name": null,
+  "currency": "USD",
+  "subtotal": null,
+  "tax_amount": null,
+  "discount": null,
+  "total_amount": null,
+  "cash_paid": null,
+  "change_amount": null,
+  "line_items": [],
+  "evidence": {}
+}

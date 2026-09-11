@@ -1,0 +1,134 @@
+{
+  "document_name": "sample_invoice.pdf",
+  "document_type": "invoice",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "error_message": null
+  },
+  "extracted_data": {
+    "invoice_number": "INV-2023-001",
+    "invoice_date": "2023-10-15",
+    "vendor_name": "ACME Global Solutions Inc.",
+    "customer_name": "TechCorp Enterprises Ltd.",
+    "currency": null,
+    "subtotal": 3000.0,
+    "tax_amount": 300.0,
+    "discount": 0.0,
+    "total_amount": 3300.0,
+    "cash_paid": 3500.0,
+    "change_amount": 200.0,
+    "line_items": [
+      {
+        "description": "Software Consulting Services",
+        "quantity": 10.0,
+        "unit_price": 150.0,
+        "line_total": 1500.0
+      },
+      {
+        "description": "Cloud Infrastructure Setup",
+        "quantity": 2.0,
+        "unit_price": 750.0,
+        "line_total": 1500.0
+      }
+    ],
+    "evidence": {
+      "invoice_number": {
+        "source_text": "Invoice #: INV-2023-001",
+        "page_number": 1
+      },
+      "invoice_date": {
+        "source_text": "Invoice Date: 2023-10-15",
+        "page_number": 1
+      },
+      "subtotal": {
+        "source_text": "Subtotal: 3000.00",
+        "page_number": 1
+      },
+      "tax_amount": {
+        "source_text": "Tax Amount: 300.00",
+        "page_number": 1
+      },
+      "total_amount": {
+        "source_text": "Total Amount: 3300.00",
+        "page_number": 1
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "Line Item 1 Math",
+        "formula": "Quantity * Unit Price = Line Total",
+        "operands": {
+          "quantity": 10.0,
+          "unit_price": 150.0
+        },
+        "calculated_value": 1500.0,
+        "reported_value": 1500.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "Line Item 2 Math",
+        "formula": "Quantity * Unit Price = Line Total",
+        "operands": {
+          "quantity": 2.0,
+          "unit_price": 750.0
+        },
+        "calculated_value": 1500.0,
+        "reported_value": 1500.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "Sum of Line Items Reconciliation",
+        "formula": "Sum(Line Totals) = Subtotal / Total",
+        "operands": {
+          "line_totals_sum": 3000.0
+        },
+        "calculated_value": 3000.0,
+        "reported_value": 3000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "Tax & Subtotal Reconciliation",
+        "formula": "Subtotal - Discount + Tax = Total Amount",
+        "operands": {
+          "subtotal": 3000.0,
+          "discount": 0.0,
+          "tax_amount": 300.0
+        },
+        "calculated_value": 3300.0,
+        "reported_value": 3300.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "Cash & Change Reconciliation",
+        "formula": "Cash Paid - Total Amount = Change",
+        "operands": {
+          "cash_paid": 3500.0,
+          "total_amount": 3300.0
+        },
+        "calculated_value": 200.0,
+        "reported_value": 200.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "processed_at": "2026-09-10T07:44:05.634023",
+    "processing_time_ms": 4081.83,
+    "model_used": "Rule-based Engine"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "document_name": "sample_cash_flow.pdf",
+  "document_type": "cash_flow_statement",
+  "processing_status": "PASS",
+  "file_validation": {
+    "file_type": "pdf",
+    "is_supported": true,
+    "is_readable": true,
+    "page_count": 1,
+    "status": "PASS",
+    "error_message": null
+  },
+  "extracted_data": {
+    "company_name": "HORIZON ENTERPRISES INC",
+    "currency": null,
+    "periods": [
+      {
+        "period_name": "2023",
+        "operating_cash_flow": 150000.0,
+        "investing_cash_flow": -50000.0,
+        "financing_cash_flow": -20000.0,
+        "fx_translation_adjustment": 0.0,
+        "net_change_in_cash": 80000.0,
+        "opening_cash": 100000.0,
+        "cash_acquired_adjustments": 0.0,
+        "closing_cash": 180000.0,
+        "line_items": []
+      }
+    ],
+    "evidence": {
+      "operating_cash_flow_2023": {
+        "source_text": "Operating Cash Flow                 150000.00",
+        "page_number": 1
+      },
+      "investing_cash_flow_2023": {
+        "source_text": "Investing Cash Flow                (50000.00)",
+        "page_number": 1
+      },
+      "financing_cash_flow_2023": {
+        "source_text": "Financing Cash Flow                (20000.00)",
+        "page_number": 1
+      },
+      "fx_translation_adjustment_2023": {
+        "source_text": "Foreign Exchange Adjustment            0.00",
+        "page_number": 1
+      },
+      "net_change_in_cash_2023": {
+        "source_text": "Net Change in Cash                   80000.00",
+        "page_number": 1
+      },
+      "opening_cash_2023": {
+        "source_text": "Opening Cash                        100000.00",
+        "page_number": 1
+      },
+      "cash_acquired_adjustments_2023": {
+        "source_text": "Cash Acquired Adjustments               0.00",
+        "page_number": 1
+      },
+      "closing_cash_2023": {
+        "source_text": "Closing Cash                        180000.00",
+        "page_number": 1
+      }
+    }
+  },
+  "validation": {
+    "checks": [
+      {
+        "name": "[2023] Net Cash Flow Reconciliation",
+        "formula": "Operating Cash + Investing Cash + Financing Cash + FX = Net Change in Cash",
+        "operands": {
+          "operating_cash": 150000.0,
+          "investing_cash": -50000.0,
+          "financing_cash": -20000.0,
+          "fx_adjustment": 0.0
+        },
+        "calculated_value": 80000.0,
+        "reported_value": 80000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      },
+      {
+        "name": "[2023] Ending Cash Reconciliation",
+        "formula": "Opening Cash + Net Change in Cash + Adjustments = Closing Cash",
+        "operands": {
+          "opening_cash": 100000.0,
+          "net_change_in_cash": 80000.0,
+          "adjustments": 0.0
+        },
+        "calculated_value": 180000.0,
+        "reported_value": 180000.0,
+        "variance": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "overall_status": "PASS",
+    "issues": []
+  },
+  "processing_metadata": {
+    "ocr_used": false,
+    "processed_at": "2026-09-10T07:44:08.598569",
+    "processing_time_ms": 2642.34,
+    "model_used": "Rule-based Engine"
+  }
+}

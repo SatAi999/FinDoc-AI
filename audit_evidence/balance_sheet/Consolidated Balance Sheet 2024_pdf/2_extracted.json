@@ -1,0 +1,25 @@
+{
+  "company_name": "CONSOLIDATED",
+  "currency": null,
+  "periods": [
+    {
+      "period_name": "2024",
+      "total_assets": null,
+      "total_liabilities": null,
+      "total_equity": null,
+      "total_capital_and_liabilities": null,
+      "asset_line_items": [],
+      "liability_equity_line_items": []
+    },
+    {
+      "period_name": "2023",
+      "total_assets": null,
+      "total_liabilities": null,
+      "total_equity": null,
+      "total_capital_and_liabilities": null,
+      "asset_line_items": [],
+      "liability_equity_line_items": []
+    }
+  ],
+  "evidence": {}
+}

@@ -1,0 +1,29 @@
+{
+  "company_name": "CONSOLIDATED PROFIT AND LOSS ACCOUNTI",
+  "currency": null,
+  "periods": [
+    {
+      "period_name": "2019",
+      "revenue": null,
+      "cost_of_sales": null,
+      "gross_profit": null,
+      "interest_earned": null,
+      "other_income": null,
+      "total_income": null,
+      "operating_expenses": null,
+      "interest_expended": null,
+      "provisions_and_contingencies": null,
+      "total_expenditure": null,
+      "operating_profit": null,
+      "tax": null,
+      "net_profit_before_minority_interest": null,
+      "minority_interest": null,
+      "net_profit": null,
+      "current_profit": null,
+      "brought_forward_profit": null,
+      "total_available_for_appropriation": null,
+      "line_items": []
+    }
+  ],
+  "evidence": {}
+}
