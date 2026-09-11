@@ -1,6 +1,7 @@
 import io
 import os
 import time
+import gc
 import hashlib
 from typing import Dict, Any, List, Optional, Tuple
 from PIL import Image
@@ -27,7 +28,7 @@ class OCRService:
             try:
                 os.environ["FLAGS_enable_pir_api"] = "0"
                 from paddleocr import PaddleOCR
-                logger.info("Initializing PaddleOCR singleton (Primary Engine)...")
+                logger.info("Initializing PaddleOCR singleton (Fallback Engine)...")
                 cls._paddle_ocr = PaddleOCR(lang='en')
             except Exception as e:
                 logger.warning(f"PaddleOCR initialization failed: {e}")
@@ -40,8 +41,13 @@ class OCRService:
             try:
                 import torch
                 import easyocr
+                # Restrict PyTorch to single-thread to conserve RAM on CPU environments
+                try:
+                    torch.set_num_threads(1)
+                except Exception:
+                    pass
                 has_cuda = torch.cuda.is_available()
-                logger.info(f"Initializing EasyOCR Reader singleton (CUDA: {has_cuda})...")
+                logger.info(f"Initializing EasyOCR Reader singleton (CUDA: {has_cuda}, 1-thread CPU mode)...")
                 cls._easyocr_reader = easyocr.Reader(['en'], gpu=has_cuda, verbose=False)
             except Exception as e:
                 logger.warning(f"EasyOCR initialization failed: {e}")
@@ -129,7 +135,7 @@ class OCRService:
                     
                     for page_idx in range(total_pages):
                         page = pdf_doc.load_page(page_idx)
-                        pix = page.get_pixmap(dpi=200)
+                        pix = page.get_pixmap(dpi=120)
                         img_bytes = pix.tobytes("png")
                         
                         scanned_page, engine = cls._ocr_image_bytes_unified(img_bytes, page_number=page_idx + 1)
@@ -156,13 +162,13 @@ class OCRService:
             
             # Transpose according to EXIF orientation (fixes mobile phone photos taken sideways/upside-down)
             try:
-                from PIL import Image, ImageOps
+                from PIL import ImageOps
                 raw_im = Image.open(io.BytesIO(file_bytes))
                 transposed_im = ImageOps.exif_transpose(raw_im)
                 if transposed_im is not None:
                     out_buf = io.BytesIO()
                     fmt = "PNG" if ext == ".png" else "JPEG"
-                    transposed_im.save(out_buf, format=fmt, quality=95)
+                    transposed_im.save(out_buf, format=fmt, quality=90)
                     file_bytes = out_buf.getvalue()
             except Exception as trans_err:
                 logger.warning(f"EXIF transpose handling warning for {filename}: {trans_err}")
@@ -199,6 +205,7 @@ class OCRService:
         }
 
         cls._cache[doc_hash] = result
+        gc.collect()
         return result
 
     @classmethod
@@ -207,9 +214,9 @@ class OCRService:
             from PIL import ImageEnhance, ImageOps
             gray = ImageOps.grayscale(image)
             enhancer = ImageEnhance.Contrast(gray)
-            enhanced = enhancer.enhance(1.8)
+            enhanced = enhancer.enhance(1.6)
             resample_filter = getattr(Image.Resampling, 'LANCZOS', getattr(Image, 'LANCZOS', 3))
-            if enhanced.width < 1200 or enhanced.height < 1200:
+            if enhanced.width < 1000 or enhanced.height < 1000:
                 enhanced = enhanced.resize((enhanced.width * 2, enhanced.height * 2), resample_filter)
             return enhanced.convert("RGB")
         except Exception as err:
@@ -230,7 +237,7 @@ class OCRService:
                 image = raw_image
             image = image.convert("RGB")
             
-            max_dim = 1600
+            max_dim = 1000
             if image.width > max_dim or image.height > max_dim:
                 scale = max_dim / float(max(image.width, image.height))
                 new_w = int(image.width * scale)
@@ -249,7 +256,6 @@ class OCRService:
             if easy_reader:
                 try:
                     results = easy_reader.readtext(img_np, detail=1)
-                    avg_conf = sum(float(item[2]) for item in results if len(item) > 2) / float(max(1, len(results)))
                     
                     # Preprocessing retry if OCR returned almost nothing (fewer than 5 tokens)
                     if len(results) < 5 and image is not None:
@@ -274,7 +280,7 @@ class OCRService:
                                     "confidence": round(conf, 4)
                                 })
                     if lines:
-                        engine_used = "EasyOCR (CUDA GPU Primary)"
+                        engine_used = "EasyOCR (Primary)"
                 except Exception as e_err:
                     logger.warning(f"EasyOCR failed on page {page_number}: {e_err}. Falling back to PaddleOCR.")
 
@@ -305,6 +311,7 @@ class OCRService:
                         logger.error(f"PaddleOCR fallback failed on page {page_number}: {p_err}")
 
         full_text = "\n".join(lines)
+        gc.collect()
         return ({
             "page_number": page_number,
             "full_text": full_text,
