@@ -4,7 +4,7 @@
   "rewrites": [
     {
       "source": "/api/v1/:path*",
-      "destination": "https://findoc-ai-2c11.onrender.com/api/v1/:path*"
+      "destination": "https://findoc-ai-ops8.onrender.com/api/v1/:path*"
     },
     {
       "source": "/view/:name*",
